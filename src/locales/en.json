@@ -1,0 +1,109 @@
+{
+  "header": {
+    "about": "About Me",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "About Me",
+    "role": "Full-Stack .NET Developer",
+    "description": "I am a .NET Full-Stack developer with over 5 years of experience in developing and maintaining web applications, system migrations, and process automation. My focus is on continuous improvement, code quality, and delivering efficient solutions. I am accustomed to working in agile teams with Scrum methodology."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "current": "Present",
+    "jobs": [
+      {
+        "company": "Heinleing Grouppe",
+        "period": "2024 - Present",
+        "position": "Full-Stack .NET Developer",
+        "description": "Development of Full-Stack web applications with .NET 8, Entity Framework, SQL Server, Angular, and Razor. Migration of solutions to new frameworks and participation in Scrum teams with Azure DevOps and Git."
+      },
+      {
+        "company": "Setup Informática",
+        "period": "2022 - 2023",
+        "position": "Full-Stack .NET Developer",
+        "description": "Development and maintenance of applications with .NET 5.3, Entity Framework, Razor, and Ionic. Participation in projects from scratch and code review."
+      },
+      {
+        "company": "EY (Ernst & Young)",
+        "period": "2020 - 2022",
+        "position": "Full-Stack .NET Developer",
+        "description": "Development of enterprise applications with Visual Basic .NET 4, implementation of system migrations, and process optimization through automation."
+      },
+      {
+        "company": "Accusys",
+        "period": "2019 - 2020",
+        "position": "QA Analyst",
+        "description": "Functional analysis, design and execution of manual tests (black box, regression, etc.), validation of databases in SQL Server, and use of tools such as Swagger and Jira."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": [
+      {
+        "name": "Languages",
+        "skills": [
+          "C#",
+          "Visual Basic.NET",
+          "TypeScript",
+          "JavaScript",
+          "HTML5",
+          "CSS3"
+        ]
+      },
+      {
+        "name": "Frameworks & Libraries",
+        "skills": [
+          ".NET Framework 4-8",
+          "ASP.NET MVC/Core MVC",
+          "Angular",
+          "React",
+          "jQuery",
+          "Razor",
+          "Bootstrap",
+          "Ionic",
+          "Entity Framework",
+          "LINQ",
+          "NUnit",
+          "XUnit",
+          "Moq",
+          "Dapper",
+          "AutoMapper"
+        ]
+      },
+      {
+        "name": "Databases",
+        "skills": ["Microsoft SQL Server", "MySQL", "PostgreSQL", "MongoDB"]
+      },
+      {
+        "name": "Tools & Platforms",
+        "skills": [
+          "Visual Studio",
+          "Visual Studio Code",
+          "Git (GitHub, SourceTree)",
+          "Azure DevOps",
+          "Swagger",
+          "Postman"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "yourName": "Your Name",
+    "email": "Email",
+    "yourEmail": "Your Email",
+    "subject": "Subject",
+    "yourSubject": "Your Subject",
+    "message": "Message",
+    "yourMessage": "Your Message",
+    "send": "Send Message",
+    "contactInformation": "Contact Information",
+    "phone": "Phone",
+    "location": "Location"
+  }
+}

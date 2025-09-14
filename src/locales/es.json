@@ -1,0 +1,109 @@
+{
+  "header": {
+    "about": "Acerca de Mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "contact": "Contacto"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "role": "Full-Stack Developer .NET",
+    "description": "Soy un desarrollador .NET Full-Stack con más de 5 años de experiencia en desarrollo y mantenimiento de aplicaciones web, migraciones de sistemas y automatización de procesos. Mi enfoque está en la mejora continua, la calidad del código y la entrega de soluciones eficientes. Estoy acostumbrado a trabajar en equipos ágiles con metodología Scrum."
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "current": "Actualidad",
+    "jobs": [
+      {
+        "company": "Heinleing Grouppe",
+        "period": "2024 - Actualidad",
+        "position": "Full-Stack Developer .NET",
+        "description": "Desarrollo de aplicaciones web .NET Full-Stack con .NET 8, Entity Framework, SQL Server, Angular y Razor. Migración de soluciones a nuevos frameworks y participación en equipos Scrum con Azure DevOps y Git."
+      },
+      {
+        "company": "Setup Informática",
+        "period": "2022 - 2023",
+        "position": "Full-Stack Developer .NET",
+        "description": "Desarrollo y mantenimiento de aplicaciones con .NET 5.3, Entity Framework, Razor e Ionic. Participación en proyectos desde cero y revisión de código."
+      },
+      {
+        "company": "EY (Ernst & Young)",
+        "period": "2020 - 2022",
+        "position": "Full-Stack Developer .NET",
+        "description": "Desarrollo de aplicaciones empresariales con Visual Basic .NET 4, implementación de migraciones de sistemas y optimización de procesos mediante automatizaciones."
+      },
+      {
+        "company": "Accusys",
+        "period": "2019 - 2020",
+        "position": "QA Analyst",
+        "description": "Análisis funcional, diseño y ejecución de pruebas manuales (caja negra, regresión, etc.), validación de bases de datos en SQL Server y uso de herramientas como Swagger y Jira."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "categories": [
+      {
+        "name": "Lenguajes",
+        "skills": [
+          "C#",
+          "Visual Basic.NET",
+          "TypeScript",
+          "JavaScript",
+          "HTML5",
+          "CSS3"
+        ]
+      },
+      {
+        "name": "Frameworks & Librerías",
+        "skills": [
+          ".NET Framework 4-8",
+          "ASP.NET MVC/Core MVC",
+          "Angular",
+          "React",
+          "jQuery",
+          "Razor",
+          "Bootstrap",
+          "Ionic",
+          "Entity Framework",
+          "LINQ",
+          "NUnit",
+          "XUnit",
+          "Moq",
+          "Dapper",
+          "AutoMapper"
+        ]
+      },
+      {
+        "name": "Bases de Datos",
+        "skills": ["Microsoft SQL Server", "MySQL", "PostgreSQL", "MongoDB"]
+      },
+      {
+        "name": "Herramientas & Plataformas",
+        "skills": [
+          "Visual Studio",
+          "Visual Studio Code",
+          "Git (GitHub, SourceTree)",
+          "Azure DevOps",
+          "Swagger",
+          "Postman"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "name": "Nombre",
+    "yourName": "Tu Nombre",
+    "email": "Email",
+    "yourEmail": "Tu Email",
+    "message": "Mensaje",
+    "subject": "Asunto",
+    "yourSubject": "Tu Asunto",
+    "yourMessage": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "contactInformation": "Información de Contacto",
+    "phone": "Teléfono",
+    "location": "Ubicación"
+  }
+}
