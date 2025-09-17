@@ -1,7 +1,7 @@
-import React from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { UserIcon } from "lucide-react";
-const AboutMe: React.FC = () => {
+
+function AboutMe() {
   const { t } = useLanguage();
   return (
     <section id="about" className="py-16">
@@ -35,5 +35,5 @@ const AboutMe: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 export default AboutMe;

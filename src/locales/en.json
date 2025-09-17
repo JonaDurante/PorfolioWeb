@@ -15,28 +15,32 @@
     "current": "Present",
     "jobs": [
       {
-        "company": "Heinleing Grouppe",
+        "company": "Heinlein Grouppe",
         "period": "2024 - Present",
         "position": "Full-Stack .NET Developer",
-        "description": "Development of Full-Stack web applications with .NET 8, Entity Framework, SQL Server, Angular, and Razor. Migration of solutions to new frameworks and participation in Scrum teams with Azure DevOps and Git."
+        "description": "Development of Full-Stack web applications with .NET 8, Entity Framework, SQL Server, Angular, and Razor. Migration of solutions to new frameworks and participation in Scrum teams with Azure DevOps and Git.",
+        "logo": "/heinlein.jpg"
       },
       {
         "company": "Setup Informática",
         "period": "2022 - 2023",
         "position": "Full-Stack .NET Developer",
-        "description": "Development and maintenance of applications with .NET 5.3, Entity Framework, Razor, and Ionic. Participation in projects from scratch and code review."
+        "description": "Development and maintenance of applications with .NET 5.3, Entity Framework, Razor, and Ionic. Participation in projects from scratch and code review.",
+        "logo": "/setup.jpg"
       },
       {
         "company": "EY (Ernst & Young)",
         "period": "2020 - 2022",
         "position": "Full-Stack .NET Developer",
-        "description": "Development of enterprise applications with Visual Basic .NET 4, implementation of system migrations, and process optimization through automation."
+        "description": "Development of enterprise applications with Visual Basic .NET 4, implementation of system migrations, and process optimization through automation.",
+        "logo": "/ey.jpg"
       },
       {
         "company": "Accusys",
         "period": "2019 - 2020",
         "position": "QA Analyst",
-        "description": "Functional analysis, design and execution of manual tests (black box, regression, etc.), validation of databases in SQL Server, and use of tools such as Swagger and Jira."
+        "description": "Functional analysis, design and execution of manual tests (black box, regression, etc.), validation of databases in SQL Server, and use of tools such as Swagger and Jira.",
+        "logo": "/accusys.jpg"
       }
     ]
   },

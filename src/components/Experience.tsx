@@ -1,24 +1,14 @@
-import React from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { BriefcaseIcon } from "lucide-react";
 import enTranslations from "../locales/en.json";
 import esTranslations from "../locales/es.json";
-const Experience: React.FC = () => {
+
+function Experience() {
   const { language, t } = useLanguage();
-  // Get the jobs array directly from the translation files
   const translations = language === "en" ? enTranslations : esTranslations;
+
   const jobs = translations.experience.jobs;
-  // Company logos
-  const companyLogos = {
-    "Heinleing Grouppe":
-      "https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-    "Setup Informática":
-      "https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-    "EY (Ernst & Young)":
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-    Accusys:
-      "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80",
-  };
+
   return (
     <section id="experience" className="py-16">
       <div className="max-w-3xl mx-auto">
@@ -36,10 +26,7 @@ const Experience: React.FC = () => {
                 <div className="md:w-1/4 flex justify-center items-start mb-4 md:mb-0 md:mr-6">
                   <div className="bg-white dark:bg-gray-700 p-2 rounded-lg shadow-sm">
                     <img
-                      src={
-                        companyLogos[job.company] ||
-                        "https://via.placeholder.com/150"
-                      }
+                      src={job.logo}
                       alt={`${job.company} logo`}
                       className="w-24 h-24 object-contain"
                     />
@@ -68,5 +55,5 @@ const Experience: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 export default Experience;

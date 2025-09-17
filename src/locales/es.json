@@ -15,28 +15,32 @@
     "current": "Actualidad",
     "jobs": [
       {
-        "company": "Heinleing Grouppe",
+        "company": "Heinlein Grouppe",
         "period": "2024 - Actualidad",
         "position": "Full-Stack Developer .NET",
-        "description": "Desarrollo de aplicaciones web .NET Full-Stack con .NET 8, Entity Framework, SQL Server, Angular y Razor. Migración de soluciones a nuevos frameworks y participación en equipos Scrum con Azure DevOps y Git."
+        "description": "Desarrollo de aplicaciones web .NET Full-Stack con .NET 8, Entity Framework, SQL Server, Angular y Razor. Migración de soluciones a nuevos frameworks y participación en equipos Scrum con Azure DevOps y Git.",
+        "logo": "/heinlein.jpg"
       },
       {
         "company": "Setup Informática",
         "period": "2022 - 2023",
         "position": "Full-Stack Developer .NET",
-        "description": "Desarrollo y mantenimiento de aplicaciones con .NET 5.3, Entity Framework, Razor e Ionic. Participación en proyectos desde cero y revisión de código."
+        "description": "Desarrollo y mantenimiento de aplicaciones con .NET 5.3, Entity Framework, Razor e Ionic. Participación en proyectos desde cero y revisión de código.",
+        "logo": "/setup.jpg"
       },
       {
         "company": "EY (Ernst & Young)",
         "period": "2020 - 2022",
         "position": "Full-Stack Developer .NET",
-        "description": "Desarrollo de aplicaciones empresariales con Visual Basic .NET 4, implementación de migraciones de sistemas y optimización de procesos mediante automatizaciones."
+        "description": "Desarrollo de aplicaciones empresariales con Visual Basic .NET 4, implementación de migraciones de sistemas y optimización de procesos mediante automatizaciones.",
+        "logo": "/ey.jpg"
       },
       {
         "company": "Accusys",
         "period": "2019 - 2020",
         "position": "QA Analyst",
-        "description": "Análisis funcional, diseño y ejecución de pruebas manuales (caja negra, regresión, etc.), validación de bases de datos en SQL Server y uso de herramientas como Swagger y Jira."
+        "description": "Análisis funcional, diseño y ejecución de pruebas manuales (caja negra, regresión, etc.), validación de bases de datos en SQL Server y uso de herramientas como Swagger y Jira.",
+        "logo": "/accusys.jpg"
       }
     ]
   },
