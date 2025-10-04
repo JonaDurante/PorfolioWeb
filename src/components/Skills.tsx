@@ -2,6 +2,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { CodeIcon } from "lucide-react";
 import enTranslations from "../locales/en.json";
 import esTranslations from "../locales/es.json";
+
 function Skills() {
   const { language, t } = useLanguage();
   const translations = language === "en" ? enTranslations : esTranslations;
@@ -29,7 +30,11 @@ function Skills() {
                     key={skillIndex}
                     className="text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
                   >
-                    {skill}
+                    <img
+                      src={skill.logoPath}
+                      alt={skill.name}
+                      className="h-12 w-14"
+                    />
                   </span>
                 ))}
               </div>

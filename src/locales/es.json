@@ -50,47 +50,55 @@
       {
         "name": "Lenguajes",
         "skills": [
-          "C#",
-          "Visual Basic.NET",
-          "TypeScript",
-          "JavaScript",
-          "HTML5",
-          "CSS3"
+          { "name": "C#", "logoPath": "/logos/csharp.svg" },
+          { "name": "Visual Basic.NET", "logoPath": "/logos/vbnet.svg" },
+          { "name": "TypeScript", "logoPath": "/logos/typescript.svg" },
+          { "name": "JavaScript", "logoPath": "/logos/javascript.svg" },
+          { "name": "HTML5", "logoPath": "/logos/html5.svg" },
+          { "name": "CSS3", "logoPath": "/logos/css3.svg" }
         ]
       },
       {
         "name": "Frameworks & Librerías",
         "skills": [
-          ".NET Framework 4-8",
-          "ASP.NET MVC/Core MVC",
-          "Angular",
-          "React",
-          "jQuery",
-          "Razor",
-          "Bootstrap",
-          "Ionic",
-          "Entity Framework",
-          "LINQ",
-          "NUnit",
-          "XUnit",
-          "Moq",
-          "Dapper",
-          "AutoMapper"
+          { "name": ".NET Framework 4-8", "logoPath": "/logos/dotnet.svg" },
+          { "name": "ASP.NET MVC/Core MVC", "logoPath": "/logos/aspnet.svg" },
+          { "name": "Angular", "logoPath": "/logos/angular.svg" },
+          { "name": "React", "logoPath": "/logos/react.svg" },
+          { "name": "jQuery", "logoPath": "/logos/jquery.svg" },
+          { "name": "Razor", "logoPath": "/logos/razor.jpg" },
+          { "name": "Bootstrap", "logoPath": "/logos/bootstrap.svg" },
+          { "name": "Ionic", "logoPath": "/logos/ionic.svg" },
+          { "name": "Entity Framework", "logoPath": "/logos/ef.svg" },
+          { "name": "LINQ", "logoPath": "/logos/linq.svg" },
+          { "name": "NUnit", "logoPath": "/logos/nunit.png" },
+          { "name": "XUnit", "logoPath": "/logos/xunit.png" },
+          { "name": "Moq", "logoPath": "/logos/moq.svg" },
+          { "name": "Dapper", "logoPath": "/logos/dapper.svg" },
+          { "name": "AutoMapper", "logoPath": "/logos/automapper.png" }
         ]
       },
       {
         "name": "Bases de Datos",
-        "skills": ["Microsoft SQL Server", "MySQL", "PostgreSQL", "MongoDB"]
+        "skills": [
+          {
+            "name": "Microsoft SQL Server",
+            "logoPath": "/logos/sqlserver.svg"
+          },
+          { "name": "MySQL", "logoPath": "/logos/mysql.svg" },
+          { "name": "PostgreSQL", "logoPath": "/logos/postgresql.svg" },
+          { "name": "MongoDB", "logoPath": "/logos/mongodb.svg" }
+        ]
       },
       {
         "name": "Herramientas & Plataformas",
         "skills": [
-          "Visual Studio",
-          "Visual Studio Code",
-          "Git (GitHub, SourceTree)",
-          "Azure DevOps",
-          "Swagger",
-          "Postman"
+          { "name": "Visual Studio", "logoPath": "/logos/visualstudio.svg" },
+          { "name": "Visual Studio Code", "logoPath": "/logos/vscode.svg" },
+          { "name": "Git (GitHub, SourceTree)", "logoPath": "/logos/git.svg" },
+          { "name": "Azure DevOps", "logoPath": "/logos/azuredevops.svg" },
+          { "name": "Swagger", "logoPath": "/logos/swagger.svg" },
+          { "name": "Postman", "logoPath": "/logos/postman.svg" }
         ]
       }
     ]
