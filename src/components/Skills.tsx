@@ -10,7 +10,7 @@ function Skills() {
   return (
     <section id="skills" className="py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 flex items-center">
+        <h2 className="text-gray-700 dark:text-gray-300 text-3xl font-bold mb-8 flex items-center">
           <CodeIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
           {t("skills.title")}
         </h2>
@@ -27,7 +27,7 @@ function Skills() {
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skillIndex}
-                    className="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+                    className="text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
                   >
                     {skill}
                   </span>

@@ -3,10 +3,11 @@ import { MailIcon, Send } from "lucide-react";
 
 function Contact() {
   const { t } = useLanguage();
+
   return (
-    <section id="contact" className="pt-16">
-      <div className="max-w-3xl mx-auto ">
-        <h2 className="text-3xl font-bold mb-8 flex items-center">
+    <section id="contact" className="pt-16 min-w-auto w-full">
+      <div className="max-w-7xl mx-auto shadow-slate shadow-lg bg-white dark:bg-gray-800">
+        <h2 className="text-gray-700 dark:text-gray-300 text-3xl font-bold mb-8 flex items-center">
           <MailIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
           {t("contact.title")}
         </h2>

@@ -12,7 +12,7 @@ function Experience() {
   return (
     <section id="experience" className="py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 flex items-center">
+        <h2 className="text-gray-700 dark:text-gray-300 text-3xl font-bold mb-8 flex items-center">
           <BriefcaseIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
           {t("experience.title")}
         </h2>

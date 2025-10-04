@@ -4,10 +4,10 @@ import { UserIcon } from "lucide-react";
 function AboutMe() {
   const { t } = useLanguage();
   return (
-    <section id="about" className="py-16">
+    <section id="about" className="bg-white dark:bg-gray-800 py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 flex items-center">
-          <UserIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
+        <h2 className="text-dark dark:text-gray-400 text-3xl font-bold mb-8 flex items-center">
+          <UserIcon className=" h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
           {t("about.title")}
         </h2>
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
