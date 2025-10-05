@@ -1,16 +1,20 @@
 import { useLanguage } from "../contexts/LanguageContext";
 import { MailIcon, Send } from "lucide-react";
+import SplitText from "./effects/SplitText";
 
 function Contact() {
-  const { t } = useLanguage();
-
+  const { language, t } = useLanguage();
   return (
     <section id="contact" className="pt-16 min-w-auto w-full">
       <div className="max-w-7xl mx-auto shadow-slate shadow-lg bg-white dark:bg-gray-800">
-        <h2 className="text-gray-700 dark:text-gray-300 text-3xl font-bold mb-8 flex items-center">
+        <div className="justify-center mb-8 inline-flex items-center">
           <MailIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
-          {t("contact.title")}
-        </h2>
+          <SplitText
+            key={language + "-contact-title"}
+            text={t("contact.title")}
+            tag="h1"
+          />
+        </div>
         <div
           id="contact"
           className="py-2 bg-white dark:bg-gray-800 rounded-lg shadow-md"

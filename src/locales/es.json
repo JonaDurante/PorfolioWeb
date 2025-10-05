@@ -6,12 +6,12 @@
     "contact": "Contacto"
   },
   "about": {
-    "title": "Acerca de Mí",
+    "title": "Acerca\u00A0de\u00A0Mí",
     "role": "Full-Stack Developer .NET",
     "description": "Soy un desarrollador .NET Full-Stack con más de 5 años de experiencia en desarrollo y mantenimiento de aplicaciones web, migraciones de sistemas y automatización de procesos. Mi enfoque está en la mejora continua, la calidad del código y la entrega de soluciones eficientes. Estoy acostumbrado a trabajar en equipos ágiles con metodología Scrum."
   },
   "experience": {
-    "title": "Experiencia Profesional",
+    "title": "Experiencia\u00A0Profesional",
     "current": "Actualidad",
     "jobs": [
       {
@@ -45,7 +45,7 @@
     ]
   },
   "skills": {
-    "title": "Habilidades Técnicas",
+    "title": "Habilidades\u00A0Técnicas",
     "categories": [
       {
         "name": "Lenguajes",
@@ -70,11 +70,10 @@
           { "name": "Bootstrap", "logoPath": "/logos/bootstrap.svg" },
           { "name": "Ionic", "logoPath": "/logos/ionic.svg" },
           { "name": "Entity Framework", "logoPath": "/logos/ef.svg" },
-          { "name": "LINQ", "logoPath": "/logos/linq.svg" },
+          { "name": "LINQ", "logoPath": "/logos/linq.jpg" },
           { "name": "NUnit", "logoPath": "/logos/nunit.png" },
           { "name": "XUnit", "logoPath": "/logos/xunit.png" },
-          { "name": "Moq", "logoPath": "/logos/moq.svg" },
-          { "name": "Dapper", "logoPath": "/logos/dapper.svg" },
+          { "name": "Dapper", "logoPath": "/logos/dapper.jpg" },
           { "name": "AutoMapper", "logoPath": "/logos/automapper.png" }
         ]
       },

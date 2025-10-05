@@ -2,6 +2,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { BriefcaseIcon } from "lucide-react";
 import enTranslations from "../locales/en.json";
 import esTranslations from "../locales/es.json";
+import SplitText from "./effects/SplitText";
 
 function Experience() {
   const { language, t } = useLanguage();
@@ -12,10 +13,14 @@ function Experience() {
   return (
     <section id="experience" className="py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-gray-700 dark:text-gray-300 text-3xl font-bold mb-8 flex items-center">
+        <div className="justify-center mb-8 inline-flex items-center">
           <BriefcaseIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
-          {t("experience.title")}
-        </h2>
+          <SplitText
+            key={language + "-exp-title"}
+            text={t("experience.title")}
+            tag="h1"
+          />
+        </div>
         <div className="space-y-8">
           {jobs.map((job, index) => (
             <div

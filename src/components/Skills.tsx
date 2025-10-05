@@ -1,45 +1,68 @@
+import { useEffect, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { CodeIcon } from "lucide-react";
 import enTranslations from "../locales/en.json";
 import esTranslations from "../locales/es.json";
+import SplitText from "./effects/SplitText";
+import { LogoItem, LogoLoop } from "./effects/LogoLoop";
 
 function Skills() {
   const { language, t } = useLanguage();
   const translations = language === "en" ? enTranslations : esTranslations;
   const categories = translations.skills.categories;
 
+  const [fadeOutColor, setFadeOutColor] = useState("#ffffff");
+
+  useEffect(() => {
+    const updateFadeOutColor = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setFadeOutColor(isDark ? "#1a202c" : "#ffffff");
+    };
+
+    updateFadeOutColor();
+
+    const observer = new MutationObserver(updateFadeOutColor);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="skills" className="py-16">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-gray-700 dark:text-gray-300 text-3xl font-bold mb-8 flex items-center">
+        <div className="justify-center mb-8 inline-flex items-center">
           <CodeIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
-          {t("skills.title")}
-        </h2>
+          <SplitText
+            key={language + "-skills-title"}
+            text={t("skills.title")}
+            tag="h1"
+          />
+        </div>
         <div className="space-y-8">
-          {categories.map((category, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
-                {category.name}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
-                  >
-                    <img
-                      src={skill.logoPath}
-                      alt={skill.name}
-                      className="h-12 w-14"
-                    />
-                  </span>
-                ))}
+          {categories.map((category, index) => {
+            const logoItems: LogoItem[] = category.skills.map((skill: any) => ({
+              src: skill.logoPath,
+              alt: skill.name,
+              title: skill.name,
+            }));
+
+            return (
+              <div
+                key={index}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
+              >
+                <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
+                  {category.name}
+                </h3>
+                <div className="flex flex-wrap gap-2 overflow-visible">
+                  <LogoLoop logos={logoItems} fadeOutColor={fadeOutColor} />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
