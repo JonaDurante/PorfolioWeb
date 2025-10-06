@@ -10,7 +10,7 @@ export default function Footer() {
             href="https://www.linkedin.com/in/jonathangdurante/"
             target="_blank"
             rel="noopener noreferrer"
-            className=" text-main hover:bg-blue-600 hover:text-white transition-colors p-2 rounded-full"
+            className=" text-gray-100 hover:bg-blue-600 hover:text-white transition-colors p-2 rounded-full"
           >
             <svg
               className="w-5 h-5"
@@ -31,7 +31,7 @@ export default function Footer() {
             href="https://wa.me/5491141476732"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-main hover:bg-green-500 hover:text-white transition-colors p-2 rounded-full"
+            className="text-gray-100 hover:bg-green-500 hover:text-white transition-colors p-2 rounded-full"
           >
             <svg
               className="w-5 h-5"
@@ -49,7 +49,7 @@ export default function Footer() {
             href="https://github.com/JonaDurante"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-main hover:bg-orange-700 hover:text-white transition-colors p-2 rounded-full"
+            className="text-gray-100 hover:bg-orange-700 hover:text-white transition-colors p-2 rounded-full"
           >
             <svg
               className="w-5 h-5"
