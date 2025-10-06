@@ -26,7 +26,7 @@ function Experience() {
               className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border-l-4 border-blue-600 dark:border-blue-400"
             >
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/4 flex justify-center items-start mb-4 md:mb-0 md:mr-6">
+                <div className="md:w-1/4 flex justify-center align-middle items-center  mb-4 md:mb-0 md:mr-6">
                   <div className="bg-white dark:bg-gray-700 p-2 rounded-lg shadow-sm">
                     <img
                       src={job.logo}

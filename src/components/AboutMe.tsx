@@ -15,7 +15,7 @@ function AboutMe() {
         </div>
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
           <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/3 flex justify-center mb-6 md:mb-0 md:mr-6">
+            <div className="md:w-1/3 flex justify-center align-middle items-center mb-6 md:mb-0 md:mr-6">
               <img
                 src="/img.jpg"
                 alt="Jonathan Durante"

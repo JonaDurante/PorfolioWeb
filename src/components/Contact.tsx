@@ -1,5 +1,5 @@
 import { useLanguage } from "../contexts/LanguageContext";
-import { MailIcon, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import SplitText from "./effects/SplitText";
 
 function Contact() {
@@ -7,14 +7,17 @@ function Contact() {
   return (
     <section id="contact" className="pt-16 min-w-auto w-full">
       <div className="max-w-7xl mx-auto shadow-slate shadow-lg bg-white dark:bg-gray-800">
-        <div className="justify-center mb-8 inline-flex items-center">
+        <div className="justify-center m-8 inline-flex items-center">
           <SplitText
             key={language + "-contact-title"}
             text={t("contact.title")}
             tag="h1"
           />
         </div>
-        <div id="contact" className="bg-stone-950 rounded-lg shadow-md">
+        <div
+          id="contact"
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md"
+        >
           <div className="container mx-auto px-2">
             <div className="flex flex-col gap-8">
               <form className="bg-white dark:bg-gray-800 p-6 rounded-lg">
