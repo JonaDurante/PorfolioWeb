@@ -8,17 +8,13 @@ function Contact() {
     <section id="contact" className="pt-16 min-w-auto w-full">
       <div className="max-w-7xl mx-auto shadow-slate shadow-lg bg-white dark:bg-gray-800">
         <div className="justify-center mb-8 inline-flex items-center">
-          <MailIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
           <SplitText
             key={language + "-contact-title"}
             text={t("contact.title")}
             tag="h1"
           />
         </div>
-        <div
-          id="contact"
-          className="py-2 bg-white dark:bg-gray-800 rounded-lg shadow-md"
-        >
+        <div id="contact" className="bg-stone-950 rounded-lg shadow-md">
           <div className="container mx-auto px-2">
             <div className="flex flex-col gap-8">
               <form className="bg-white dark:bg-gray-800 p-6 rounded-lg">
@@ -65,7 +61,7 @@ function Contact() {
                       placeholder={t("contact.yourSubject")}
                     />
                   </div>
-                  <div className="mb-6">
+                  <div className="mb-2">
                     <label
                       htmlFor="message"
                       className="block text-gray-700 dark:text-gray-300 font-medium mb-2"
@@ -83,7 +79,7 @@ function Contact() {
                 <div className="flex justify-center">
                   <button
                     type="submit"
-                    className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                    className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors flex items-center"
                   >
                     {t("contact.send")}
                     <Send size={18} className="ml-2" />
@@ -96,7 +92,6 @@ function Contact() {
                 <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-6">
                   {t("contact.contactInformation")}
                 </h3>
-
                 <div className="flex flex-row justify-center gap-6">
                   <div className="flex items-center">
                     <a

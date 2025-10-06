@@ -1,14 +1,12 @@
 import { useLanguage } from "../contexts/LanguageContext";
-import { UserIcon } from "lucide-react";
 import SplitText from "./effects/SplitText";
 
 function AboutMe() {
   const { language, t } = useLanguage();
   return (
-    <section id="about" className="bg-white dark:bg-gray-800 py-16">
+    <section id="about" className="bg-transparent ">
       <div className="max-w-3xl mx-auto">
-        <div className="justify-center mb-8 inline-flex items-center">
-          <UserIcon className=" h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
+        <div className="justify-center mb-4 inline-flex items-center">
           <SplitText
             key={language + "-about-title"}
             text={t("about.title")}

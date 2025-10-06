@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
-import { CodeIcon } from "lucide-react";
 import enTranslations from "../locales/en.json";
 import esTranslations from "../locales/es.json";
 import SplitText from "./effects/SplitText";
@@ -31,10 +30,9 @@ function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="py-16">
+    <section id="skills">
       <div className="max-w-3xl mx-auto">
-        <div className="justify-center mb-8 inline-flex items-center">
-          <CodeIcon className="h-8 w-8 mr-2 text-blue-600 dark:text-blue-400" />
+        <div className="justify-center mb-4 inline-flex items-center">
           <SplitText
             key={language + "-skills-title"}
             text={t("skills.title")}

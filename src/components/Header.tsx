@@ -20,7 +20,7 @@ function Header() {
   //   }
   // };
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10">
+    <header className="bg-trans shadow-md sticky top-0 z-10">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-16">
         <div className="flex justify-between md:grid md:grid-cols-3 mx-auto w-full h-16 items-center">
           <div className="flex items-center justify-start">

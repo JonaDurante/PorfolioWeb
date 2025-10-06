@@ -68,7 +68,6 @@
           { "name": "jQuery", "logoPath": "/logos/jquery.svg" },
           { "name": "Razor", "logoPath": "/logos/razor.jpg" },
           { "name": "Bootstrap", "logoPath": "/logos/bootstrap.svg" },
-          { "name": "Ionic", "logoPath": "/logos/ionic.svg" },
           { "name": "Entity Framework", "logoPath": "/logos/ef.svg" },
           { "name": "LINQ", "logoPath": "/logos/linq.jpg" },
           { "name": "NUnit", "logoPath": "/logos/nunit.png" },
