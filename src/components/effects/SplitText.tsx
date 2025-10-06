@@ -24,7 +24,7 @@ export interface SplitTextProps {
 
 const SplitText: React.FC<SplitTextProps> = ({
   text,
-  className = "text-gray-700 dark:text-gray-300 text-3xl font-bold flex items-center",
+  className = "text-main text-3xl font-bold flex items-center",
   delay = 40,
   duration = 0.1,
   ease = "power3.out",

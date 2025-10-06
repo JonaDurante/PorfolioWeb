@@ -206,7 +206,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     fadeOutColor,
     scaleOnHover = true,
     ariaLabel = "Partner logos",
-    className = "bg-white dark:bg-gray-800",
+    className = "bg-background rounded-lg p-6",
     style,
   }) => {
     const containerRef = useRef<HTMLDivElement>(null);

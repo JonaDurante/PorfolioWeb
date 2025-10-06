@@ -9,4 +9,53 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: text-blue-600;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #60a5fa transparent;
+  }
+}
+
+@layer components {
+  .text-main {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+  .bg-background {
+    @apply bg-gray-100 dark:bg-[#17202A];
+  }
+  .tittle-div {
+    @apply justify-center mb-2 inline-flex items-center;
+  }
+  .tittle-text {
+    @apply text-main text-3xl font-bold flex items-center;
+  }
+  .link-style {
+    @apply text-main text-lg hover:text-blue-600 dark:hover:text-blue-400;
+  }
+  .div-nav {
+    @apply hover:border-blue-600 dark:hover:border-blue-400 border-b-2 border-transparent;
+  }
+  .blue-text {
+    @apply text-blue-600 dark:text-blue-400;
+  }
+  .border-blue {
+    @apply border-blue-600 dark:border-blue-400;
+  }
+  .imput-form {
+    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-100 dark:bg-gray-900 text-main;
+  }
 }

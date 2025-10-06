@@ -65,7 +65,7 @@
           { "name": "ASP.NET MVC/Core MVC", "logoPath": "/logos/aspnet.svg" },
           { "name": "Angular", "logoPath": "/logos/angular.svg" },
           { "name": "React", "logoPath": "/logos/react.svg" },
-          { "name": "jQuery", "logoPath": "/logos/jquery.svg" },
+          { "name": "jQuery", "logoPath": "/logos/jquery" },
           { "name": "Razor", "logoPath": "/logos/razor.jpg" },
           { "name": "Bootstrap", "logoPath": "/logos/bootstrap.svg" },
           { "name": "Entity Framework", "logoPath": "/logos/ef.svg" },
@@ -115,5 +115,13 @@
     "contactInformation": "Información de Contacto",
     "phone": "Teléfono",
     "location": "Ubicación"
+  },
+  "themeToggle": {
+    "light": "modo claro",
+    "dark": "modo oscuro"
+  },
+  "languageToggle": {
+    "es": "Español",
+    "en": "Inglés"
   }
 }

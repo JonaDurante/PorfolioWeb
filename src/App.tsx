@@ -7,14 +7,22 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import LetterGlitch from "./components/effects/LetterGlitch";
+import Footer from "./components/Footer";
 
 export function App() {
-  const [bgImage, setBgImage] = useState("/bg-withe.png");
+  const [bgPalette, setBgPalette] = useState(["#2b4539", "#61dca3", "#61b3dc"]);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const updateBg = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setBgImage(isDark ? "/bg-dark.png" : "/bg-white.png");
+      const dark = document.documentElement.classList.contains("dark");
+      setIsDark(dark);
+      setBgPalette(
+        dark
+          ? ["#2b4539", "#61dca3", "#61b3dc"]
+          : ["#f0f0f0", "#61dca3", "#61b3dc"]
+      );
     };
 
     updateBg();
@@ -32,29 +40,26 @@ export function App() {
     <LanguageProvider>
       <ThemeProvider>
         <BrowserRouter>
-          <div
-            className="flex flex-col min-h-screen relative"
-            style={{
-              backgroundImage: `url('${bgImage}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }}
-          >
-            <div className="flex flex-col min-h-screen bg.transparent relative">
-              <Header />
-              <main className="bg-transparent flex-1 flex items-center justify-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full relative z-10">
-                <Routes>
-                  <Route path="/" element={<AboutMe />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-              </main>
-              <footer className="bg-transparent max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-sm text-gray-100 dark:text-gray-100 w-full relative z-10">
-                © {new Date().getFullYear()} Jonathan Durante - Portfolio
-              </footer>
-            </div>
+          <LetterGlitch
+            key={bgPalette.join("-")}
+            glitchColors={bgPalette}
+            glitchSpeed={50}
+            centerVignette={isDark}
+            outerVignette={isDark}
+            smooth={true}
+            characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
+          />
+          <div className="flex flex-col min-h-screen relative z-10">
+            <Header />
+            <main className="flex-1 flex items-center justify-center max-w-full max-h-full mx-auto">
+              <Routes>
+                <Route path="/" element={<AboutMe />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </main>
+            <Footer />
           </div>
         </BrowserRouter>
       </ThemeProvider>
