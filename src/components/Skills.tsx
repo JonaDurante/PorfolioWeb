@@ -51,8 +51,11 @@ export default function Skills() {
   }, [isDark]);
 
   return (
-    <section id="skills" className="bg-transparent flex-auto h-fit sm:px-4">
-      <div className="card px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg lg:max-w-3xl md:max-w-3xl sm:max-w-2xl mx-auto ">
+    <section
+      id="skills"
+      className="bg-transparent flex w-full h-fit align-center justify-center"
+    >
+      <div className="card px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg sm:w-full md:max-w-2xl lg:max-w-3xl w-full">
         <div className="tittle-div">
           <SplitText
             key={language + "-skills-title"}

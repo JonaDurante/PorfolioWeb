@@ -5,8 +5,11 @@ import SplitText from "./effects/SplitText";
 export default function Contact() {
   const { language, t } = useLanguage();
   return (
-    <section id="contact" className="bg-transparent flex-auto">
-      <div className="card mx-auto w-full max-w-xl lg:max-w-4xl px-2 sm:px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg">
+    <section
+      id="contact"
+      className="bg-transparent flex w-full h-fit align-center justify-center"
+    >
+      <div className="card px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg sm:w-full md:max-w-2xl lg:max-w-3xl w-full">
         <div className="tittle-div">
           <SplitText
             key={language + "-contact-title"}
@@ -57,7 +60,7 @@ export default function Contact() {
                       </label>
                       <textarea
                         id="message"
-                        rows={5}
+                        rows={8}
                         className="imput-form resize-none"
                         placeholder={t("contact.yourMessage")}
                       />
