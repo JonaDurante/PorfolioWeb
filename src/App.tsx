@@ -21,7 +21,7 @@ export function App() {
       setBgPalette(
         dark
           ? ["#2b4539", "#61dca3", "#61b3dc"]
-          : ["#f0f0f0", "#61dca3", "#61b3dc"]
+          : ["#f0f0f0", "#1a202c", "#166534"]
       );
     };
 
@@ -51,7 +51,7 @@ export function App() {
           />
           <div className="flex flex-col min-h-screen relative z-10">
             <Header />
-            <main className="flex-1 flex items-center justify-center max-w-full max-h-full mx-auto">
+            <main className="flex-1 w-full px-4 py-8 mx-auto">
               <Routes>
                 <Route path="/" element={<AboutMe />} />
                 <Route path="/experience" element={<Experience />} />

@@ -11,9 +11,9 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-transparent backdrop-blur shadow-md sticky top-0 z-10 opacity-95 w-full">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-16">
-        <div className="flex justify-between md:grid md:grid-cols-3 mx-auto w-full h-16 items-center">
+    <header className="bg-transparent backdrop-blur shadow-md sticky top-0 z-10 opacity-95 w-screen">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-full">
+        <div className="flex justify-between items-center text-center align-center md:grid md:grid-cols-3 mx-auto w-full h-full">
           <div className="flex items-center justify-start">
             <h1 className="tittle-text text-xl font-bold">Jonathan Durante</h1>
           </div>
@@ -131,24 +131,28 @@ export default function Header() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               to="/"
+              onClick={() => setIsMenuOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
             >
               {t("header.about")}
             </Link>
             <Link
-              to="/"
+              to="/experience"
+              onClick={() => setIsMenuOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
             >
               {t("header.experience")}
             </Link>
             <Link
-              to="/"
+              to="/skills"
+              onClick={() => setIsMenuOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
             >
               {t("header.skills")}
             </Link>
             <Link
-              to="/"
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
             >
               {t("header.contact")}
