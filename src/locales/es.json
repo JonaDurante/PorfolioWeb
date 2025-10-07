@@ -112,6 +112,8 @@
     "yourSubject": "Tu Asunto",
     "yourMessage": "Tu Mensaje",
     "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successMessage": "¡Mensaje enviado exitosamente! Te responderé pronto.",
     "contactInformation": "Información de Contacto",
     "phone": "Teléfono",
     "location": "Ubicación"
@@ -123,5 +125,18 @@
   "languageToggle": {
     "es": "Español",
     "en": "Inglés"
+  },
+  "footer": {
+    "linkedinTitle": "Mi LinkedIn",
+    "whatsappTitle": "Mi WhatsApp",
+    "githubTitle": "Mi GitHub",
+    "downloadCV": "Descargar CV",
+    "selectLanguage": "Selecciona el idioma del CV:",
+    "cvSpanish": "CV en Español",
+    "cvEnglish": "CV in English"
+  },
+  "modal": {
+    "close": "Cerrar",
+    "cancel": "Cancelar"
   }
 }

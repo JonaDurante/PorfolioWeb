@@ -1,4 +1,16 @@
+import { useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { Download } from "lucide-react";
+import CVModal from "./CVModal";
+
 export default function Footer() {
+  const { t } = useLanguage();
+  const [isCVModalOpen, setIsCVModalOpen] = useState(false);
+
+  const handleCVClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsCVModalOpen(true);
+  };
   return (
     <footer className="max-w-full h-fit flex flex-row items-center justify-center text-sm bg-black text-gray-100 py-1 gap-3">
       <div className="flex flex-row justify-start ">
@@ -10,6 +22,8 @@ export default function Footer() {
             href="https://www.linkedin.com/in/jonathangdurante/"
             target="_blank"
             rel="noopener noreferrer"
+            title={t("footer.linkedinTitle")}
+            aria-label={t("footer.linkedinTitle")}
             className=" text-gray-100 hover:bg-blue-600 hover:text-white transition-colors p-2 rounded-full"
           >
             <svg
@@ -31,6 +45,8 @@ export default function Footer() {
             href="https://wa.me/5491141476732"
             target="_blank"
             rel="noopener noreferrer"
+            title={t("footer.whatsappTitle")}
+            aria-label={t("footer.whatsappTitle")}
             className="text-gray-100 hover:bg-green-500 hover:text-white transition-colors p-2 rounded-full"
           >
             <svg
@@ -49,6 +65,8 @@ export default function Footer() {
             href="https://github.com/JonaDurante"
             target="_blank"
             rel="noopener noreferrer"
+            title={t("footer.githubTitle")}
+            aria-label={t("footer.githubTitle")}
             className="text-gray-100 hover:bg-orange-700 hover:text-white transition-colors p-2 rounded-full"
           >
             <svg
@@ -61,7 +79,23 @@ export default function Footer() {
             </svg>
           </a>
         </div>
+        <div className="flex items-center">
+          <button
+            onClick={handleCVClick}
+            title={t("footer.downloadCV")}
+            aria-label={t("footer.downloadCV")}
+            className="text-gray-100 hover:bg-blue-500 hover:text-white transition-colors p-2 rounded-full flex items-center gap-1"
+          >
+            <Download className="w-5 h-5" />
+          </button>
+        </div>
       </div>
+      
+      {/* CV Selection Modal */}
+      <CVModal 
+        isOpen={isCVModalOpen} 
+        onClose={() => setIsCVModalOpen(false)} 
+      />
     </footer>
   );
 }

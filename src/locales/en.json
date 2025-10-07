@@ -112,6 +112,8 @@
     "message": "Message",
     "yourMessage": "Your Message",
     "send": "Send Message",
+    "sending": "Sending...",
+    "successMessage": "Message sent successfully! I'll get back to you soon.",
     "contactInformation": "Contact Information",
     "phone": "Phone",
     "location": "Location"
@@ -123,5 +125,18 @@
   "languageToggle": {
     "es": "Spanish",
     "en": "English"
+  },
+  "footer": {
+    "linkedinTitle": "My LinkedIn",
+    "whatsappTitle": "My WhatsApp",
+    "githubTitle": "My GitHub",
+    "downloadCV": "Download CV",
+    "selectLanguage": "Select CV language:",
+    "cvSpanish": "CV en Español",
+    "cvEnglish": "CV in English"
+  },
+  "modal": {
+    "close": "Close",
+    "cancel": "Cancel"
   }
 }
