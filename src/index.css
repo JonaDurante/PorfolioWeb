@@ -60,7 +60,6 @@
   }
 }
 
-/* Cursores personalizados */
 :root {
   --cursor-normal: url("/cursor-black.png");
   --cursor-hover: url("/cursor-hover-black.png");

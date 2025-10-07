@@ -3,6 +3,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { SunIcon, MoonIcon, MenuIcon, XIcon, GlobeIcon } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useHoverPreload, lazyComponentLoaders } from "../hooks/useLazyPreload";
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -10,39 +11,55 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const experiencePreload = useHoverPreload(lazyComponentLoaders.Experience);
+  const skillsPreload = useHoverPreload(lazyComponentLoaders.Skills);
+  const contactPreload = useHoverPreload(lazyComponentLoaders.Contact);
+
   return (
     <header className="bg-transparent backdrop-blur shadow-md sticky top-0 z-10 opacity-95 w-screen">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center h-full">
-        <div className="flex justify-between items-center text-center align-center md:grid md:grid-cols-3 mx-auto w-full h-full">
+      <div className="mx-auto px-2 sm:px-4 lg:px-6 xl:px-8 justify-between items-center h-full">
+        <div className="flex justify-between items-center text-center align-center navbar:grid navbar:grid-cols-3 mx-auto w-full h-full pb-1 navbar:pb-0">
           <div className="flex items-center justify-start">
             <h1 className="tittle-text text-xl font-bold">Jonathan Durante</h1>
           </div>
-          <div className="hidden md:flex items-center justify-center bg-transparent rounded-xl px-6 py-2">
-            <nav className="flex items-center space-x-8">
+          <div className="hidden navbar:flex items-center justify-center bg-transparent rounded-xl px-4 py-2">
+            <nav className="flex items-center space-x-6 whitespace-nowrap">
               <div className="div-nav rounded ">
                 <Link to="/" className="link-style">
                   {t("header.about")}
                 </Link>
               </div>
               <div className="div-nav rounded ">
-                <Link to="/experience" className="link-style">
+                <Link
+                  to="/experience"
+                  className="link-style"
+                  onMouseEnter={experiencePreload.handleMouseEnter}
+                >
                   {t("header.experience")}
                 </Link>
               </div>
               <div className="div-nav rounded ">
-                <Link to="/skills" className="link-style">
+                <Link
+                  to="/skills"
+                  className="link-style"
+                  onMouseEnter={skillsPreload.handleMouseEnter}
+                >
                   {t("header.skills")}
                 </Link>
               </div>
               <div className="div-nav rounded ">
-                <Link to="/contact" className="link-style">
+                <Link
+                  to="/contact"
+                  className="link-style"
+                  onMouseEnter={contactPreload.handleMouseEnter}
+                >
                   {t("header.contact")}
                 </Link>
               </div>
             </nav>
           </div>
           <div className="flex items-center text-center justify-end">
-            <div className="hidden md:flex items-center justify-end">
+            <div className="hidden navbar:flex items-center justify-end">
               <button
                 onClick={() => setLanguage(language === "en" ? "es" : "en")}
                 className="flex items-center text-main p-2 rounded-full div-nav link-style transition-all"
@@ -82,7 +99,7 @@ export default function Header() {
                 )}
               </button>
             </div>
-            <div className="flex items-center md:hidden justify-end">
+            <div className="flex items-center navbar:hidden justify-end">
               <button
                 onClick={() => setLanguage(language === "en" ? "es" : "en")}
                 className="flex items-center text-main p-2 rounded-full div-nav link-style transition-all"
@@ -113,7 +130,7 @@ export default function Header() {
               </button>
               <button
                 onClick={toggleMenu}
-                className="text-main p-2 rounded-md div-nav link-style"
+                className="text-main p-2 rounded-full div-nav link-style"
                 aria-label="Open Menu"
               >
                 {isMenuOpen ? (
@@ -127,7 +144,7 @@ export default function Header() {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-background shadow-lg">
+        <div className="navbar:hidden bg-background shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               to="/"
@@ -139,6 +156,7 @@ export default function Header() {
             <Link
               to="/experience"
               onClick={() => setIsMenuOpen(false)}
+              onMouseEnter={experiencePreload.handleMouseEnter}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.experience")}
@@ -146,6 +164,7 @@ export default function Header() {
             <Link
               to="/skills"
               onClick={() => setIsMenuOpen(false)}
+              onMouseEnter={skillsPreload.handleMouseEnter}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.skills")}
@@ -153,6 +172,7 @@ export default function Header() {
             <Link
               to="/contact"
               onClick={() => setIsMenuOpen(false)}
+              onMouseEnter={contactPreload.handleMouseEnter}
               className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.contact")}

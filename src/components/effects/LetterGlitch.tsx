@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const LetterGlitch = ({
   glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
@@ -15,6 +16,7 @@ const LetterGlitch = ({
   smooth: boolean;
   characters: string;
 }) => {
+  const { isDark } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
   const letters = useRef<
@@ -46,19 +48,28 @@ const LetterGlitch = ({
   };
 
   const hexToRgb = (hex: string) => {
-    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-    hex = hex.replace(shorthandRegex, (_m, r, g, b) => {
-      return r + r + g + g + b + b;
-    });
+    try {
+      if (!hex || typeof hex !== "string") {
+        return null;
+      }
 
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result
-      ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16),
-        }
-      : null;
+      const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, (_m, r, g, b) => {
+        return r + r + g + g + b + b;
+      });
+
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result
+        ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16),
+          }
+        : null;
+    } catch (error) {
+      console.warn("Error parsing hex color:", hex, error);
+      return null;
+    }
   };
 
   const interpolateColor = (
@@ -93,42 +104,82 @@ const LetterGlitch = ({
 
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    const parent = canvas.parentElement;
-    if (!parent) return;
-
-    const dpr = window.devicePixelRatio || 1;
-    const rect = parent.getBoundingClientRect();
-
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-
-    canvas.style.width = `${rect.width}px`;
-    canvas.style.height = `${rect.height}px`;
-
-    if (context.current) {
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!canvas) {
+      console.warn("Canvas ref is null, cannot resize");
+      return;
     }
 
-    const { columns, rows } = calculateGrid(rect.width, rect.height);
-    initializeLetters(columns, rows);
-    drawLetters();
+    const parent = canvas.parentElement;
+    if (!parent) {
+      console.warn("Canvas parent element is null, cannot resize");
+      return;
+    }
+
+    try {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = parent.getBoundingClientRect();
+
+      if (rect.width <= 0 || rect.height <= 0) {
+        console.warn("Invalid parent dimensions for canvas resize");
+        return;
+      }
+
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+
+      if (context.current) {
+        try {
+          context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+        } catch (error) {
+          console.warn("Error setting canvas transform:", error);
+        }
+      }
+
+      const { columns, rows } = calculateGrid(rect.width, rect.height);
+      initializeLetters(columns, rows);
+      drawLetters();
+    } catch (error) {
+      console.error("Error in resizeCanvas:", error);
+    }
   };
 
   const drawLetters = () => {
     if (!context.current || letters.current.length === 0) return;
-    const ctx = context.current;
-    const { width, height } = canvasRef.current!.getBoundingClientRect();
-    ctx.clearRect(0, 0, width, height);
-    ctx.font = `${fontSize}px monospace`;
-    ctx.textBaseline = "top";
 
-    letters.current.forEach((letter, index) => {
-      const x = (index % grid.current.columns) * charWidth;
-      const y = Math.floor(index / grid.current.columns) * charHeight;
-      ctx.fillStyle = letter.color;
-      ctx.fillText(letter.char, x, y);
-    });
+    const ctx = context.current;
+    const canvas = canvasRef.current;
+
+    if (!canvas) {
+      console.warn("Canvas ref is null, cannot draw");
+      return;
+    }
+
+    try {
+      const { width, height } = canvas.getBoundingClientRect();
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.font = `${fontSize}px monospace`;
+      ctx.textBaseline = "top";
+
+      letters.current.forEach((letter, index) => {
+        try {
+          const x = (index % grid.current.columns) * charWidth;
+          const y = Math.floor(index / grid.current.columns) * charHeight;
+
+          ctx.fillStyle = letter.color;
+          ctx.fillText(letter.char, x, y);
+        } catch (error) {
+          if (process.env.NODE_ENV === "development" && index === 0) {
+            console.warn("Error drawing letter:", error);
+          }
+        }
+      });
+    } catch (error) {
+      console.error("Error in drawLetters:", error);
+    }
   };
 
   const updateLetters = () => {
@@ -153,91 +204,131 @@ const LetterGlitch = ({
   };
 
   const handleSmoothTransitions = () => {
-    let needsRedraw = false;
-    letters.current.forEach((letter) => {
-      if (letter.colorProgress < 1) {
-        letter.colorProgress += 0.05;
-        if (letter.colorProgress > 1) letter.colorProgress = 1;
+    try {
+      let needsRedraw = false;
+      letters.current.forEach((letter) => {
+        if (letter.colorProgress < 1) {
+          letter.colorProgress += 0.05;
+          if (letter.colorProgress > 1) letter.colorProgress = 1;
 
-        const startRgb = hexToRgb(letter.color);
-        const endRgb = hexToRgb(letter.targetColor);
-        if (startRgb && endRgb) {
-          letter.color = interpolateColor(
-            startRgb,
-            endRgb,
-            letter.colorProgress
-          );
-          needsRedraw = true;
+          const startRgb = hexToRgb(letter.color);
+          const endRgb = hexToRgb(letter.targetColor);
+          if (startRgb && endRgb) {
+            letter.color = interpolateColor(
+              startRgb,
+              endRgb,
+              letter.colorProgress
+            );
+            needsRedraw = true;
+          }
         }
-      }
-    });
+      });
 
-    if (needsRedraw) {
-      drawLetters();
+      if (needsRedraw) {
+        drawLetters();
+      }
+    } catch (error) {
+      console.error("Error in handleSmoothTransitions:", error);
     }
   };
 
   const animate = () => {
-    const now = Date.now();
-    if (now - lastGlitchTime.current >= glitchSpeed) {
-      updateLetters();
-      drawLetters();
-      lastGlitchTime.current = now;
-    }
+    try {
+      const now = Date.now();
+      if (now - lastGlitchTime.current >= glitchSpeed) {
+        updateLetters();
+        drawLetters();
+        lastGlitchTime.current = now;
+      }
 
-    if (smooth) {
-      handleSmoothTransitions();
-    }
+      if (smooth) {
+        handleSmoothTransitions();
+      }
 
-    animationRef.current = requestAnimationFrame(animate);
+      animationRef.current = requestAnimationFrame(animate);
+    } catch (error) {
+      console.error("Error in animation frame:", error);
+
+      // Intentar continuar la animación
+      try {
+        animationRef.current = requestAnimationFrame(animate);
+      } catch (secondError) {
+        console.error("Failed to recover animation:", secondError);
+      }
+    }
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.warn("Canvas ref is null during initialization");
+      return;
+    }
 
-    context.current = canvas.getContext("2d");
-    resizeCanvas();
-    animate();
+    try {
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        console.error("Failed to get 2D context from canvas");
+        return;
+      }
+
+      context.current = ctx;
+      resizeCanvas();
+      animate();
+    } catch (error) {
+      console.error("Error initializing canvas:", error);
+      return;
+    }
 
     let resizeTimeout: NodeJS.Timeout;
 
     const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        cancelAnimationFrame(animationRef.current as number);
-        resizeCanvas();
-        animate();
-      }, 100);
+      try {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          try {
+            if (animationRef.current) {
+              cancelAnimationFrame(animationRef.current);
+            }
+            resizeCanvas();
+            animate();
+          } catch (error) {
+            console.error("Error in resize handler:", error);
+          }
+        }, 100);
+      } catch (error) {
+        console.error("Error setting up resize handler:", error);
+      }
     };
 
     window.addEventListener("resize", handleResize);
 
     return () => {
-      cancelAnimationFrame(animationRef.current!);
-      window.removeEventListener("resize", handleResize);
+      try {
+        // Cancelar animación
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+          animationRef.current = null;
+        }
+
+        // Limpiar timeout
+        clearTimeout(resizeTimeout);
+
+        // Remover event listener
+        window.removeEventListener("resize", handleResize);
+
+        // Limpiar referencias para GC
+        context.current = null;
+        letters.current = [];
+      } catch (error) {
+        console.error("Error during cleanup:", error);
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [glitchSpeed, smooth]);
 
-  // Detectar modo oscuro/claro
-  const [bgColor, setBgColor] = useState("bg-gray-100");
-
-  useEffect(() => {
-    const updateBg = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setBgColor(isDark ? "bg-black" : "bg-gray-100");
-    };
-    updateBg();
-
-    const observer = new MutationObserver(updateBg);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  // Usar el tema del contexto
+  const bgColor = isDark ? "bg-black" : "bg-gray-100";
 
   return (
     <div

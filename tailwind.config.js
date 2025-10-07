@@ -3,6 +3,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      screens: {
+        navbar: "850px",
+      },
       colors: {
         background: "#f8fafc",
         foreground: "#22223b",

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import i18n from "../utils/i18n";
+import { getStorageItem, setStorageItem } from "../utils/localStorage";
 type Language = "en" | "es";
 interface LanguageContextType {
   language: Language;
@@ -17,19 +18,50 @@ export const LanguageProvider: React.FC<{
 }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>("es");
   useEffect(() => {
-    const savedLanguage = localStorage.getItem("language") as Language | null;
-    if (savedLanguage) {
-      setLanguageState(savedLanguage);
-      i18n.changeLanguage(savedLanguage);
+    const result = getStorageItem<Language>("language", "es");
+
+    if (
+      result.success &&
+      result.data &&
+      (result.data === "en" || result.data === "es")
+    ) {
+      setLanguageState(result.data);
+      try {
+        i18n.changeLanguage(result.data);
+      } catch (error) {
+        console.warn("Error changing i18n language:", error);
+        setLanguageState("es");
+        i18n.changeLanguage("es");
+      }
+    } else {
+      if (!result.success) {
+        console.warn("Error loading language from storage:", result.error);
+      }
+      setLanguageState("es");
+      i18n.changeLanguage("es");
     }
   }, []);
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    i18n.changeLanguage(lang);
-    localStorage.setItem("language", lang);
+    try {
+      setLanguageState(lang);
+      i18n.changeLanguage(lang);
+
+      const result = setStorageItem("language", lang);
+      if (!result.success) {
+        console.warn("Failed to save language preference:", result.error);
+      }
+    } catch (error) {
+      console.error("Error setting language:", error);
+    }
   };
   const t = (key: string) => {
-    return i18n.t(key) || key;
+    try {
+      const translation = i18n.t(key);
+      return translation || key;
+    } catch (error) {
+      console.warn(`Translation error for key "${key}":`, error);
+      return key;
+    }
   };
   return (
     <LanguageContext.Provider
