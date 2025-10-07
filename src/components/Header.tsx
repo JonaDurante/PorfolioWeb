@@ -19,22 +19,22 @@ export default function Header() {
           </div>
           <div className="hidden md:flex items-center justify-center bg-transparent rounded-xl px-6 py-2">
             <nav className="flex items-center space-x-8">
-              <div className="div-nav">
+              <div className="div-nav rounded ">
                 <Link to="/" className="link-style">
                   {t("header.about")}
                 </Link>
               </div>
-              <div className="div-nav">
+              <div className="div-nav rounded ">
                 <Link to="/experience" className="link-style">
                   {t("header.experience")}
                 </Link>
               </div>
-              <div className="div-nav">
+              <div className="div-nav rounded ">
                 <Link to="/skills" className="link-style">
                   {t("header.skills")}
                 </Link>
               </div>
-              <div className="div-nav">
+              <div className="div-nav rounded ">
                 <Link to="/contact" className="link-style">
                   {t("header.contact")}
                 </Link>
@@ -45,7 +45,7 @@ export default function Header() {
             <div className="hidden md:flex items-center justify-end">
               <button
                 onClick={() => setLanguage(language === "en" ? "es" : "en")}
-                className="flex items-center text-main p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+                className="flex items-center text-main p-2 rounded-full div-nav link-style transition-all"
                 aria-label="Toggle Language"
                 title={
                   language === "en"
@@ -67,7 +67,7 @@ export default function Header() {
               </button>
               <button
                 onClick={toggleTheme}
-                className="text-main p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center gap-2"
+                className="text-main p-2 rounded-full div-nav link-style flex items-center gap-2"
                 aria-label="Toggle Theme"
                 title={
                   theme === "dark"
@@ -85,7 +85,7 @@ export default function Header() {
             <div className="flex items-center md:hidden justify-end">
               <button
                 onClick={() => setLanguage(language === "en" ? "es" : "en")}
-                className="flex items-center text-main p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all"
+                className="flex items-center text-main p-2 rounded-full div-nav link-style transition-all"
                 aria-label="Toggle Language"
               >
                 {language === "en" ? (
@@ -102,7 +102,7 @@ export default function Header() {
               </button>
               <button
                 onClick={toggleTheme}
-                className="text-main p-2 mr-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="text-main p-2 mr-2 rounded-full div-nav link-style"
                 aria-label="Toggle Theme"
               >
                 {theme === "dark" ? (
@@ -113,7 +113,7 @@ export default function Header() {
               </button>
               <button
                 onClick={toggleMenu}
-                className="text-main p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+                className="text-main p-2 rounded-md div-nav link-style"
                 aria-label="Open Menu"
               >
                 {isMenuOpen ? (
@@ -132,28 +132,28 @@ export default function Header() {
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
+              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.about")}
             </Link>
             <Link
               to="/experience"
               onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
+              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.experience")}
             </Link>
             <Link
               to="/skills"
               onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
+              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.skills")}
             </Link>
             <Link
               to="/contact"
               onClick={() => setIsMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left hover:bg-gray-200 dark:hover:bg-gray-700 text-main"
+              className="block px-3 py-2 rounded-md text-base font-medium w-full text-left div-nav link-style text-main"
             >
               {t("header.contact")}
             </Link>
