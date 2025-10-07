@@ -58,7 +58,31 @@
   .imput-form {
     @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-100 dark:bg-gray-900 text-main;
   }
-  .on-hover {
-    @apply hover:bg-gray-500 hover:dark:bg-gray-300;
-  }
+}
+
+/* Cursores personalizados */
+:root {
+  --cursor-normal: url("/cursor-black.png");
+  --cursor-hover: url("/cursor-hover-black.png");
+}
+
+[data-theme="dark"] {
+  --cursor-normal: url("/cursor-white.png");
+  --cursor-hover: url("/cursor-hover-white.png");
+}
+
+body,
+form,
+label {
+  cursor: var(--cursor-normal) 2 2, auto !important;
+}
+
+button,
+a,
+.link-style,
+.div-nav,
+[role="button"],
+input[type="button"],
+input[type="submit"] {
+  cursor: var(--cursor-hover) 12 4, pointer !important;
 }
