@@ -51,41 +51,39 @@ export default function Skills() {
   }, [isDark]);
 
   return (
-    <section id="skills" className="bg-transparent h-fit px-2 sm:px-4">
-      <div className="max-w-3xl mx-auto w-full">
-        <div className="card px-3 sm:px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg w-full">
-          <div className="tittle-div">
-            <SplitText
-              key={language + "-skills-title"}
-              text={t("skills.title")}
-              tag="h1"
-            />
-          </div>
-          <div className="space-y-6 overflow-y-auto max-h-[70vh]">
-            {categories.map((category, index) => {
-              const logoItems: LogoItem[] = category.skills.map(
-                (skill: Skill) => ({
-                  src: getLogoSrc(skill, isDark),
-                  alt: skill.name,
-                  title: skill.name,
-                })
-              );
+    <section id="skills" className="bg-transparent flex-auto h-fit sm:px-4">
+      <div className="card px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg lg:max-w-3xl md:max-w-3xl sm:max-w-2xl mx-auto ">
+        <div className="tittle-div">
+          <SplitText
+            key={language + "-skills-title"}
+            text={t("skills.title")}
+            tag="h1"
+          />
+        </div>
+        <div className="space-y-6 overflow-y-auto max-h-[70vh]">
+          {categories.map((category, index) => {
+            const logoItems: LogoItem[] = category.skills.map(
+              (skill: Skill) => ({
+                src: getLogoSrc(skill, isDark),
+                alt: skill.name,
+                title: skill.name,
+              })
+            );
 
-              return (
-                <div
-                  key={index}
-                  className="bg-background rounded-lg shadow-md p-3 sm:p-4"
-                >
-                  <h3 className="text-lg sm:text-xl font-semibold mb-4 blue-text">
-                    {category.name}
-                  </h3>
-                  <div className="w-full overflow-hidden">
-                    <LogoLoop logos={logoItems} fadeOutColor={fadeOutColor} />
-                  </div>
+            return (
+              <div
+                key={index}
+                className="bg-background rounded-lg shadow-md p-3 sm:p-4"
+              >
+                <h3 className="text-lg sm:text-xl font-semibold mb-4 blue-text">
+                  {category.name}
+                </h3>
+                <div className="w-full overflow-hidden">
+                  <LogoLoop logos={logoItems} fadeOutColor={fadeOutColor} />
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

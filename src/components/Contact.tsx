@@ -5,8 +5,8 @@ import SplitText from "./effects/SplitText";
 export default function Contact() {
   const { language, t } = useLanguage();
   return (
-    <section id="contact" className="min-w-96 sm:p-4">
-      <div className="card px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg">
+    <section id="contact" className="bg-transparent flex-auto">
+      <div className="card mx-auto w-full max-w-xl lg:max-w-4xl px-2 sm:px-6 pb-6 pt-2 backdrop-blur shadow-md rounded-lg">
         <div className="tittle-div">
           <SplitText
             key={language + "-contact-title"}
@@ -14,26 +14,12 @@ export default function Contact() {
             tag="h1"
           />
         </div>
-        <div className="max-w-7xl mx-auto max-h-full shadow-slate shadow-lg bg-background rounded-lg">
+        <div className="mx-auto w-full max-h-full shadow-slate shadow-lg bg-background rounded-lg">
           <div id="contact" className="bg-background rounded-lg shadow-md">
             <div className="container mx-auto">
               <div className="flex flex-col">
-                <form className="bg-background p-6 rounded-lg">
+                <form className="bg-background p-4 md:p-6 rounded-lg">
                   <div className="flex flex-col gap-2 mb-4">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-main font-medium mb-2"
-                      >
-                        {t("contact.name")}
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="imput-form"
-                        placeholder={t("contact.yourName")}
-                      />
-                    </div>
                     <div>
                       <label
                         htmlFor="email"

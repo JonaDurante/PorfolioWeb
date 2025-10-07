@@ -51,7 +51,7 @@ export function App() {
           />
           <div className="flex flex-col min-h-screen relative z-10">
             <Header />
-            <main className="flex-1 w-full px-4 py-8 mx-auto">
+            <main className="flex flex-auto justify-center items-center w-full p-4 mx-auto">
               <Routes>
                 <Route path="/" element={<AboutMe />} />
                 <Route path="/experience" element={<Experience />} />
